@@ -34,10 +34,19 @@ class TaskRequest extends FormRequest
         switch ($this->getMethod()) {
             case 'POST':
                 return $rules;
+            case 'GET':
+                return [
+                    'status' => Rule::in(config('enums.task_statuses')),
+                    'user_id' => 'exists:users,id'
+                ];
             case 'PUT':
                 return [
-                        'task_id' => 'required|integer|exists:tasks,id',
-                    ] + $rules;
+                    'task_id' => 'required|integer|exists:tasks,id',
+                    'name' => 'string|min:5|max:255',
+                    'description' => 'string|max:255',
+                    'status' => Rule::in(config('enums.task_statuses')),
+                    'user_id' => 'exists:users,id',
+                ];
             case 'DELETE':
                 return [
                     'task_id' => 'required|integer|exists:tasks,id'

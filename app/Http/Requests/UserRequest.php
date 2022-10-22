@@ -36,8 +36,12 @@ class UserRequest extends FormRequest
                 return $rules;
             case 'PUT':
                 return [
-                        'user_id' => 'required|integer|exists:users,id',
-                    ] + $rules;
+                    'user_id' => 'required|integer|exists:users,id',
+                    'name' => 'string|min:5|max:255',
+                    'email' => 'email',
+                    'password' => 'string|min:8|max:32',
+                    'role' => Rule::in(config('enums.user_roles')),
+                ];
             case 'DELETE':
                 return [
                     'user_id' => 'required|integer|exists:users,id'
