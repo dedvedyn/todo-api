@@ -31,13 +31,15 @@ Available API endpoints:
 |-------------:|:------------:|:--------------------------------------------|
 | GET          | /tasks       | -                                           |
 | GET          | /task        | status, user_id                             |
-| POST         | /task/add    | name, description, status, user_id          |
-| PUT          | /task/update | task_id, name, description, status, user_id |
-| DELETE       | /task/delete | task_id                                     |
+| POST         | /task/add    | name*, description, status, user_id*        |
+| PUT          | /task/update | task_id*, name, description, status, user_id|
+| DELETE       | /task/delete | task_id*                                    |
 | GET          | /users       | -                                           |
-| POST         | /user/add    | name, email, password, role                 |
-| PUT          | /user/update | user_id, name, email, password, role        |
-| DELETE       | /user/delete | user_id                                     |
+| POST         | /user/add    | name*, email*, password*, role              |
+| PUT          | /user/update | user_id*, name, email, password, role       |
+| DELETE       | /user/delete | user_id*                                    |
+
+\* - parameter required.
 
 Available API params:
 

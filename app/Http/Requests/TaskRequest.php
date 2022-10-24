@@ -61,9 +61,6 @@ class TaskRequest extends FormRequest
     {
         return [
             'name.required' => 'The name is required',
-            'name.min' => 'The name must have at least 5 characters',
-            'name.max' => 'The name must not exceed 255 characters',
-            'description.max' => 'The description must not exceed 255 characters',
             'user_id.required' => 'The user_id is required',
             'user_id.exists' => 'This user_id doesn\'t exists',
         ];
